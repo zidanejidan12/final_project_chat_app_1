@@ -46,7 +46,7 @@ class App extends StatelessWidget {
         },
       ),
       routes: {
-        '/chat': (ctx) => ChatScreen(),
+        '/chat': (ctx) => const ChatScreen(),
       },
     );
   }

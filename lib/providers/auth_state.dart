@@ -121,7 +121,7 @@ class AuthState extends ChangeNotifier {
 
       // Navigate to the ChatScreen
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => ChatScreen()));
+          MaterialPageRoute(builder: (context) => const ChatScreen()));
     } catch (e) {
       _isAuthenticating = false;
       notifyListeners();

@@ -24,6 +24,15 @@ class _NewMessageState extends State<NewMessage> {
         .get();
 
     if (userData.exists) {
+      // Check if both the text and the image are empty
+      if (_controller.text.trim().isEmpty && _selectedImageUrl == null) {
+        // Show a warning to the user and return
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Please enter a message or select an image')),
+        );
+        return;
+      }
+
       FirebaseFirestore.instance.collection('chat').add({
         'text': _controller.text,
         'createdAt': Timestamp.now(),

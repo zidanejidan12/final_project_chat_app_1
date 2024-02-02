@@ -25,7 +25,7 @@ class ChatScreen extends StatelessWidget {
               await FirebaseAuth.instance.signOut();
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AuthScreen()),
+                MaterialPageRoute(builder: (context) => const AuthScreen()),
               );
             },
           ),
@@ -33,8 +33,8 @@ class ChatScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: const ChatMessages(),
+          const Expanded(
+            child: ChatMessages(),
           ),
           NewMessage(),
         ],
