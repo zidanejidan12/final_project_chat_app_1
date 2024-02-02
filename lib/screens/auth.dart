@@ -19,6 +19,15 @@ class AuthScreen extends StatefulWidget {
   }
 }
 
+class Auth {
+  final GoogleSignIn googleSignIn = GoogleSignIn();
+
+  Future<void> signOut() async {
+    await _firebase.signOut();
+    await googleSignIn.signOut();
+  }
+}
+
 class _AuthScreenState extends State<AuthScreen> {
   final _form = GlobalKey<FormState>();
 
@@ -28,15 +37,6 @@ class _AuthScreenState extends State<AuthScreen> {
   var _enteredUsername = '';
   File? _selectedImage;
   var _isAuthenticating = false;
-
-  final GoogleSignIn googleSignIn = GoogleSignIn();
-
-  Future<void> signOut() async {
-    if (googleSignIn.currentUser != null) {
-      await _firebase.signOut();
-      await googleSignIn.signOut();
-    }
-  }
 
   Future<UserCredential> signInWithGoogle() async {
     // Create a new GoogleSignIn instance

@@ -1,12 +1,9 @@
-//chat.dart
 import 'package:authentication_01/widgets/new_message.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../screens/auth.dart'; // Make sure this import is correct
 
 import '../widgets/chat_messages.dart';
-import 'auth.dart';
-
-// chat.dart
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -20,7 +17,9 @@ class ChatScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () async {
-              await FirebaseAuth.instance.signOut();
+              // Create an instance of Auth and call the signOut method
+              Auth auth = Auth();
+              await auth.signOut();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const AuthScreen()),
@@ -29,9 +28,9 @@ class ChatScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
+      body: const Column(
         children: [
-          const Expanded(
+          Expanded(
             child: ChatMessages(),
           ),
           NewMessage(),
