@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 1000),
     );
     _animation = Tween<double>(begin: 0, end: 1).animate(_animationController);
     _animationController.forward();
@@ -36,14 +36,14 @@ class _SplashScreenState extends State<SplashScreen>
           children: [
             FadeTransition(
               opacity: _animation,
-              child: FlutterLogo(
+              child: const FlutterLogo(
                 size: 150,
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             FadeTransition(
               opacity: _animation,
-              child: Text(
+              child: const Text(
                 'Chat Application',
                 style: TextStyle(
                   fontSize: 24,
