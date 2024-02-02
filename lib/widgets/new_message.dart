@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class NewMessage extends StatefulWidget {
+  const NewMessage({super.key});
+
   @override
   _NewMessageState createState() => _NewMessageState();
 }
@@ -28,7 +30,8 @@ class _NewMessageState extends State<NewMessage> {
       if (_controller.text.trim().isEmpty && _selectedImageUrl == null) {
         // Show a warning to the user and return
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Please enter a message or select an image')),
+          const SnackBar(
+              content: Text('Please enter a message or select an image')),
         );
         return;
       }
@@ -64,12 +67,12 @@ class _NewMessageState extends State<NewMessage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 8),
-      padding: EdgeInsets.all(8),
+      margin: const EdgeInsets.only(top: 8),
+      padding: const EdgeInsets.all(8),
       child: Row(
         children: <Widget>[
           IconButton(
-            icon: Icon(Icons.image),
+            icon: const Icon(Icons.image),
             onPressed: _pickImage,
           ),
           if (_selectedImageUrl != null)
@@ -77,14 +80,14 @@ class _NewMessageState extends State<NewMessage> {
           Expanded(
             child: TextField(
               controller: _controller,
-              decoration: InputDecoration(labelText: 'Send a message...'),
+              decoration: const InputDecoration(labelText: 'Send a message...'),
               onChanged: (value) {
                 // Update your message text here
               },
             ),
           ),
           IconButton(
-            icon: Icon(Icons.send),
+            icon: const Icon(Icons.send),
             onPressed: _sendMessage,
           ),
         ],

@@ -3,8 +3,6 @@ import 'package:authentication_01/widgets/new_message.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../widgets/user_image_upload.dart';
-import '../main.dart';
 import '../widgets/chat_messages.dart';
 import 'auth.dart';
 
